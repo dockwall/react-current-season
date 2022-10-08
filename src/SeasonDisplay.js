@@ -1,7 +1,25 @@
 import React from "react";
 
+// There are only two seasons - Summer and Winter
+// Months between 3 and 8 - Summer for northern Hemisphere, Winter for southern
+// Other months - Winter for northern Hemisphere, Summer for southern
+// Hemisphere determines by Geolocation API (calls in index.js)
+// Geolocation API returns a coords object - latitude passed as props 
+
+const getSeason = (lat, month) => {
+    if (month > 2 && month < 9) {
+        return (lat > 0) ? 'summer' : 'winter';
+    } else {
+        return (lat > 0) ? 'winter' : 'summer';
+    }
+};
+
 const SeasonDisplay = (props) => {
-    return <div>Latitude: {props.lat}</div>;
+    const currentMonth = new Date().getMonth();
+
+    const currentSeason = getSeason(props.lat, currentMonth);
+
+    return <div>{currentSeason}</div>;
 };
 
 export default SeasonDisplay;
