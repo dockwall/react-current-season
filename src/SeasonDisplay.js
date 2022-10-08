@@ -6,6 +6,17 @@ import React from "react";
 // Hemisphere determines by Geolocation API (calls in index.js)
 // Geolocation API returns a coords object - latitude passed as props 
 
+const seasonConfig = {
+    winter: {
+        seasonText: "Burr, it's chilly!",
+        seasonIconName: "snowflake icon",
+    },
+    summer: {
+        seasonText: "Let's hit the beach!",
+        seasonIconName: "sun icon",
+    },
+};
+
 const getSeason = (lat, month) => {
     if (month > 2 && month < 9) {
         return (lat > 0) ? 'summer' : 'winter';
@@ -16,10 +27,17 @@ const getSeason = (lat, month) => {
 
 const SeasonDisplay = (props) => {
     const currentMonth = new Date().getMonth();
-
     const currentSeason = getSeason(props.lat, currentMonth);
 
-    return <div>{currentSeason}</div>;
+    const { seasonText, seasonIconName } = seasonConfig[currentSeason];
+
+    return (
+        <div>
+            <i className={seasonIconName} />
+            <h1>{seasonText}</h1>
+            <i className={seasonIconName} />
+        </div>
+    );
 };
 
 export default SeasonDisplay;
