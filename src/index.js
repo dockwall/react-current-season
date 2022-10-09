@@ -23,7 +23,7 @@ class App extends React.Component {
             return <ErrorDisplay errorText={this.state.errorMessage} />
         }
 
-        return <LoadingSpinner text="Loading" />
+        return <LoadingSpinner text="Please allow access to location data" />
     }
 }
 
