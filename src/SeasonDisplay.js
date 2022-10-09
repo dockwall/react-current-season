@@ -1,4 +1,5 @@
 import React from "react";
+import "./SeasonDisplay.css"
 
 // There are only two seasons - Summer and Winter
 // Months between 3 and 8 - Summer for northern Hemisphere, Winter for southern
@@ -9,11 +10,11 @@ import React from "react";
 const seasonConfig = {
     winter: {
         seasonText: "Burr, it's chilly!",
-        seasonIconName: "white massive snowflake icon",
+        seasonIconName: "massive snowflake icon",
     },
     summer: {
         seasonText: "Let's hit the beach!",
-        seasonIconName: "orange massive sun icon",
+        seasonIconName: "massive sun icon",
     },
 };
 
@@ -32,10 +33,10 @@ const SeasonDisplay = (props) => {
     const { seasonText, seasonIconName } = seasonConfig[currentSeason];
 
     return (
-        <div>
-            <i className={seasonIconName} />
+        <div className={`season-display ${currentSeason}`}>
+            <i className={`icon-left ${seasonIconName}`} />
             <h1>{seasonText}</h1>
-            <i className={seasonIconName} />
+            <i className={`icon-right ${seasonIconName}`} />
         </div>
     );
 };
