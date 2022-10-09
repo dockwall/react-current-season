@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client"
 import LoadingSpinner from "./LoadingSpinner";
 import SeasonDisplay from "./SeasonDisplay";
+import ErrorDisplay from "./ErrorDisplay";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 class App extends React.Component {
@@ -19,7 +20,7 @@ class App extends React.Component {
         if (this.state.lat) {
             return <SeasonDisplay lat={this.state.lat} />
         } else if (this.state.errorMessage) {
-            return <div>Error: {this.state.errorMessage}</div>
+            return <ErrorDisplay errorText={this.state.errorMessage} />
         }
 
         return <LoadingSpinner text="Loading" />
