@@ -2,6 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## What does it do?
+
+This app can determine your current season (summer or winter) using date and geolocation.
+Season is representing with cute icons and text. If there are waiting or error - the app will display it too!
+For the correct work, please allow access to your geolocation.
+
+## How it works?
+
+Current geolocation - Geolocation API.
+Styles - Semantic UI.
+
 ## Available Scripts
 
 In the project directory, you can run:
