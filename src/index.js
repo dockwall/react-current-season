@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
+import LoadingSpinner from "./LoadingSpinner";
 import SeasonDisplay from "./SeasonDisplay";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,7 +22,7 @@ class App extends React.Component {
             return <div>Error: {this.state.errorMessage}</div>
         }
 
-        return <div>Loading...</div>
+        return <LoadingSpinner text="Loading" />
     }
 }
 
