@@ -16,7 +16,7 @@ class App extends React.Component {
         );
     }
 
-    render() {
+    renderContent() {
         if (this.state.lat) {
             return <SeasonDisplay lat={this.state.lat} />
         } else if (this.state.errorMessage) {
@@ -24,6 +24,10 @@ class App extends React.Component {
         }
 
         return <LoadingSpinner text="Please allow access to location data" />
+    };
+
+    render() {
+        return this.renderContent();
     }
 }
 
